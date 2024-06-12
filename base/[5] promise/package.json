@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start-demo": "tsc && node dist/demo.js",
+    "start-exos": "tsc && node dist/exos.js",
+    "start-exo2": "tsc && node dist/exo2.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "typescript": "^5.4.5"
+  }
+}
