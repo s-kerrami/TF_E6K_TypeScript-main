@@ -1,6 +1,7 @@
 import { IBanker } from "../interfaces/IBanker"
 import { ICustomer } from "../interfaces/ICustomer"
-import { Personne } from "./Personne"
+import { Personne } from "./personne"
+import { ArgumentOutOfRangeError } from "../error/argumentOutOfRangeError"
 
 export abstract class Compte implements IBanker, ICustomer{
     private numero! : string
@@ -25,10 +26,12 @@ export abstract class Compte implements IBanker, ICustomer{
 
     Retrait(montant : number) : void{
         if(montant > 0) this.Solde -= montant
+        else throw new ArgumentOutOfRangeError()
     }
 
     Depot(montant : number) : void{
         if(montant > 0) this.Solde += montant
+        else throw new ArgumentOutOfRangeError()
     }
 
     protected abstract CalculInteret(): number

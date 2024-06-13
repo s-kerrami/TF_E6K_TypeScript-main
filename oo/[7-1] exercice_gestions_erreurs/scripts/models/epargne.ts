@@ -1,5 +1,6 @@
 import { Compte } from "./compte";
-import { Personne } from "./Personne";
+import { Personne } from "./personne";
+import { SoldeInsuffisantError } from "../error/soldeInsuffisantError";
 
 export class Epargne extends Compte{
     private static TAUX : number = 0.045
@@ -16,6 +17,8 @@ export class Epargne extends Compte{
         if(this.Solde - montant >= 0){
             super.Retrait(montant)
             this.dateDernierRetrait = new Date()
+        }else{
+            throw new SoldeInsuffisantError()
         }
     }
 
