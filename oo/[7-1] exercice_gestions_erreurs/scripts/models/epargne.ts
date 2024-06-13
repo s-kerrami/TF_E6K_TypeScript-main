@@ -1,9 +1,14 @@
 import { Compte } from "./compte";
+import { Personne } from "./Personne";
 
 export class Epargne extends Compte{
     private static TAUX : number = 0.045
 
     private dateDernierRetrait! : Date
+
+    constructor(numero : string, solde : number, titulaire : Personne){
+        super(numero, solde, titulaire)
+    }
 
     get DateDernierRetrait() : Date{return this.dateDernierRetrait}
 

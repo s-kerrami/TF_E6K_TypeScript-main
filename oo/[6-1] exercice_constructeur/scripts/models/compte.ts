@@ -6,6 +6,13 @@ export abstract class Compte implements IBanker, ICustomer{
     private numero! : string
     private solde! : number
     private titulaire! : Personne
+    protected test : string = "test"
+
+    constructor(numero : string, solde : number, titulaire : Personne){
+        this.numero = numero
+        this.solde = solde
+        this.titulaire = titulaire
+    }
 
     get Numero(): string { return this.numero }
     set Numero(numero : string){ this.numero = numero }
